@@ -1,34 +1,59 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
+import store from './store'
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
 } from "react-router-dom"
+import { configureStore } from 'redux'
 import './index.css'
-import Root, { loader as rootLoader } from "./routes/root"
-import Contact from "./routes/contact"
+import View from './views/View'
+import SecondSignUForm from './components/SecondSignUForm'
+import ThirdSignUpForm from './components/ThirdSignUpForm'
+import LoginForm from './components/LoginForm'
+import Home from './views/Home'
 import ErrorPage from "./routes/error-page"
+import FirstSignUpForm from './components/FirstSignUpForm'
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <View />,
     errorElement: <ErrorPage />,
-    loader: rootLoader,
     children: [
       {
-        path: "contacts/:contactId",
-        element: <Contact />,
+        path: "/login",
+        element: <LoginForm />,
+      },
+      {
+        path: "/signup",
+        element: <FirstSignUpForm />,
+      },
+      {
+        path: "/signup/2",
+        element: <SecondSignUForm />,
+      },
+      {
+        path: "/signup/3",
+        element: <ThirdSignUpForm />,
       },
     ],
   },
-]);
+  {
+    path: "/home",
+    element: <Home />,
+    errorElement: <ErrorPage />,
+    children: [
+    ],
+  },
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </Provider>
 )
 
