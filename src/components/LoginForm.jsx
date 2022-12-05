@@ -13,12 +13,11 @@ const LoginForm = () => {
   const userLogin = useSelector((state) => state.userLogin)
   const { loading, error, userInfo } = userLogin
 
-
   useEffect(() => {
     if (userInfo) {
       navigate('/home')
     }
-  }, [ userInfo, navigate])
+  }, [userInfo, navigate])
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -35,12 +34,14 @@ const LoginForm = () => {
         type='email'
         placeholder='Write Email Address'
         className='w-[368.5px] border-b border-lightDark outline-none leading-[19.36px] text-sm font-medium'
+        required
       />
       <div className='flex flex-col'>
         <input
           type='password'
           placeholder='Write Password'
           className='w-[368.5px] border-b border-lightDark outline-none leading-[19.36px] text-sm font-medium '
+          required
         />
         <span className='leading-[19.36px] text-lightDark text-sm font-medium'>
           Your password must be 8 character

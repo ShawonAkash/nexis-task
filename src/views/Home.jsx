@@ -15,12 +15,11 @@ const Home = () => {
   const { userInfo } = userLogin
 
   useEffect(() => {
-    // if (userInfo) {
-    dispatch(listUsers())
-    // console.log(users);
-    // } else {
-    //   navigate('/login')
-    // }
+    if (userInfo) {
+      dispatch(listUsers())
+    } else {
+      navigate('/login')
+    }
   }, [])
 
   console.log(users)

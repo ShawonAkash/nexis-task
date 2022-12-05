@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import arrow from '../assets/Arrow.svg'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { register } from '../actions/userActions'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 const SecondSignUForm = () => {
   const [number, setNumber] = useState('')
@@ -13,7 +12,7 @@ const SecondSignUForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    if ((number.length != 0) & (email.length != 0)) {
+    if ((number.length !== 0) & (email.length !== 0)) {
       navigate('/signup/3')
       localStorage.setItem('number', number)
       localStorage.setItem('email', email)
@@ -38,6 +37,7 @@ const SecondSignUForm = () => {
           placeholder='1xxxxxxx'
           className='w-[270px] border-b border-lightDark outline-none leading-[19.36px] text-sm font-medium '
           onChange={(e) => setNumber(e.target.value)}
+          required
         />
       </div>
 
@@ -46,6 +46,7 @@ const SecondSignUForm = () => {
         placeholder='Write Email Address'
         className='w-[368.5px] border-b border-lightDark outline-none leading-[19.36px] text-sm font-medium'
         onChange={(e) => setEmail(e.target.value)}
+        required
       />
       <div className='flex  items-center w-[368.5px]'>
         <Link to={'/signup'} className='text-lightDark '>
