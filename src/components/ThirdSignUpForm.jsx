@@ -19,7 +19,6 @@ const ThirdSignUpForm = () => {
       const lastName = localStorage.getItem('lastName')
       const phone_number = localStorage.getItem('number')
       const email = localStorage.getItem('email')
-      // console.log(firstName, lastName, number, email)
       dispatch(register(firstName, lastName, phone_number, email, password))
     } else {
     }

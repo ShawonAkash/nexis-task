@@ -98,7 +98,7 @@ export const listUsers = () => async (dispatch, getState) => {
 
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access_token}`,
       },
     }
     const { data } = await axios.get(`https://test.nexisltd.com/test`, config)

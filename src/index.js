@@ -6,7 +6,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom"
-import { configureStore } from 'redux'
 import './index.css'
 import View from './views/View'
 import SecondSignUForm from './components/SecondSignUForm'
